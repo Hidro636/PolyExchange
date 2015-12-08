@@ -3,15 +3,23 @@
     <link rel="stylesheet" href="/external/font-awesome-4.5.0/css/font-awesome.min.css">
 </head>
 <body background="/media/background.png">
-{{> loginWindow}}
+{{#if test}}
+    {{> rideShareWindow}}
+{{else}}
+    {{> loginWindow}}
+{{/if}}
+
 </body>
 
 <template name="loginWindow">
-    <div class="login-container">
+    <div id="loginContainer" class="login-container">
         {{#if showLogin}}
             {{> loginForm}}
         {{else}}
             {{> createAccountForm}}
+        {{/if}}
+        {{#if error}}
+            <label id="errorLabel">Error</label>
         {{/if}}
         <div id="loginTab" class="{{#if showLogin}}login-leftswitch-selected{{else}}login-leftswitch-deselected{{/if}}">
             Login
@@ -24,13 +32,23 @@
 </template>
 
 <template name="loginForm">
-    <form id="loginForm">
-        <input id="emailTextBox" type="text" class="login-textbox hvr-grow" placeholder="Cal Poly Email"/>
-        <input id="passwordTextBox" type="password" class="login-textbox hvr-grow" placeholder="Password"/>
-        <input id="submitButton" type="submit" class="login-button hvr-pulse" value="Login"/>
-    </form>
+    <div style="margin-top:30px;">
+        <form id="loginForm">
+            <input name="emailTextBox" type="text" class="login-textbox hvr-grow" placeholder="Cal Poly Email"/>
+            <input id="passwordTextBox" type="password" class="login-textbox hvr-grow" placeholder="Password"/>
+            <input id="loginButton" type="submit" class="login-button hvr-hang" value="Login"/>
+        </form>
+    </div>
 </template>
 
 <template name="createAccountForm">
-
+    <div style="margin-top:0px;">
+        <form id="createAccountForm">
+            <input id="emailTextBox" type="text" class="login-textbox hvr-grow" placeholder="@calpoly.edu"/>
+            <input id="passwordTextBox" type="password" class="login-textbox hvr-grow" placeholder="Password"/>
+            <input id="confirmPasswordTextBox" type="password" class="login-textbox hvr-grow"
+                   placeholder="Confirm Password"/>
+            <input id="createAccountButton" type="submit" class="login-button hvr-hang" value="Create Account"/>
+        </form>
+    </div>
 </template>
