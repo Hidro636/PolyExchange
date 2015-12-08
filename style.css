@@ -1,0 +1,226 @@
+@font-face {
+    font-family: Archive;
+    src: url("/fonts/Archive.otf");
+}
+
+.center {
+    margin: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.login-container {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 400px;
+    height: 250px;
+    border: 1px solid rgba(147, 196, 125, 1);
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    color: rgba(0, 0, 0, 0.9);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(226, 226, 226, 1);
+    text-align: center;
+
+    font-family: Archive;
+    font-size: 32px;
+
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.login-textbox {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid rgba(147, 196, 125, 1);
+    -webkit-border-radius: 29px;
+    border-radius: 29px;
+    font-family: Archive;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(255, 255, 255, 1);
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    outline: 0;
+
+    margin: 5px;
+
+}
+
+.login-textbox:hover {
+    background: rgba(226, 226, 226, 1);
+    -webkit-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
+.login-textbox:focus {
+    background: rgba(255, 255, 255, 1);
+}
+
+.login-button {
+    content: "\f054";
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 300px;
+    padding: 10px;
+    border: none;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    font-family: Archive;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(147, 196, 125, 1);
+    -webkit-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+
+    outline: 0;
+    margin: 5px;
+}
+
+.login-leftswitch-selected {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 40%;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    border-top: 1px solid rgba(226,226,226,1);
+    border-right: 1px solid rgba(226,226,226,1);
+    border-bottom: 0 solid rgba(147,196,125,1);
+    border-left: 0 solid rgba(147,196,125,1);
+    -webkit-border-radius: 0 15px 0 0;
+    border-radius: 0 15px 0 15px;
+    font-family: Archive;
+    font-size: 16px;
+    color: rgba(255,255,255,1);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(147, 196, 125, 1);
+    -webkit-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+
+    position: absolute;
+}
+
+.login-leftswitch-deselected {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 40%;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    border-top: 1px solid rgba(147,196,125,1);
+    border-right: 1px solid rgba(147,196,125,1);
+    border-bottom: 0 solid rgba(147,196,125,1);
+    border-left: 0 solid rgba(147,196,125,1);
+    -webkit-border-radius: 0 15px 0 0;
+    border-radius: 0 15px 0 15px;
+    font-family: Archive;
+    font-size: 16px;
+    color: rgba(0,0,0,1);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(226, 226, 226, 1);
+    -webkit-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+
+    position: absolute;
+
+}
+
+.login-leftswitch-deselected:hover {
+    background: rgba(147,196,125,0.55);
+}
+
+.login-rightswitch-deselected {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 40%;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    border-top: 1px solid rgba(147,196,125,1);
+    border-right: 0 solid rgba(147,196,125,1);
+    border-bottom: 0 solid rgba(147,196,125,1);
+    border-left: 1px solid rgba(147,196,125,1);
+    -webkit-border-radius: 15px 0;
+    border-radius: 15px 0;
+    font-family: Archive;
+    font-size: 16px;
+    color: rgba(0,0,0,1);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(226, 226, 226, 1);
+    -webkit-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+
+    position: absolute;
+}
+
+.login-rightswitch-deselected:hover {
+    background: rgba(147,196,125,0.55);
+}
+
+.login-rightswitch-selected {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 40%;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    border: 1px solid rgba(226,226,226,1);
+    border-bottom-width: 0;
+    -webkit-border-radius: 15px 0;
+    border-radius: 15px 0;
+    font-family: Archive;
+    font-size: 16px;
+    color: rgba(255,255,255,1);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(147, 196, 125, 1);
+    -webkit-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -moz-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    -o-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+
+    position: absolute;
+}

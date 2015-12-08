@@ -1,0 +1,36 @@
+<head>
+    <title>PolyExchange</title>
+    <link rel="stylesheet" href="/external/font-awesome-4.5.0/css/font-awesome.min.css">
+</head>
+<body background="/media/background.png">
+{{> loginWindow}}
+</body>
+
+<template name="loginWindow">
+    <div class="login-container">
+        {{#if showLogin}}
+            {{> loginForm}}
+        {{else}}
+            {{> createAccountForm}}
+        {{/if}}
+        <div id="loginTab" class="{{#if showLogin}}login-leftswitch-selected{{else}}login-leftswitch-deselected{{/if}}">
+            Login
+        </div>
+        <div id="createAccountTab"
+             class="{{#if showLogin}}login-rightswitch-deselected{{else}}login-rightswitch-selected{{/if}}">
+            Create Account
+        </div>
+    </div>
+</template>
+
+<template name="loginForm">
+    <form id="loginForm">
+        <input id="emailTextBox" type="text" class="login-textbox hvr-grow" placeholder="Cal Poly Email"/>
+        <input id="passwordTextBox" type="password" class="login-textbox hvr-grow" placeholder="Password"/>
+        <input id="submitButton" type="submit" class="login-button hvr-pulse" value="Login"/>
+    </form>
+</template>
+
+<template name="createAccountForm">
+
+</template>
