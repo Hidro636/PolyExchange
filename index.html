@@ -1,9 +1,11 @@
 <head>
     <title>PolyExchange</title>
-    <link rel="stylesheet" href="/external/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 </head>
 <body background="/media/background.png">
-{{#if test}}
+
+{{#if currentUser}}
+    {{> headBar}}
     {{> rideShareWindow}}
 {{else}}
     {{> loginWindow}}
@@ -18,9 +20,6 @@
         {{else}}
             {{> createAccountForm}}
         {{/if}}
-        {{#if error}}
-            <label id="errorLabel">Error</label>
-        {{/if}}
         <div id="loginTab" class="{{#if showLogin}}login-leftswitch-selected{{else}}login-leftswitch-deselected{{/if}}">
             Login
         </div>
@@ -32,9 +31,9 @@
 </template>
 
 <template name="loginForm">
-    <div style="margin-top:30px;">
+    <div id="loginDiv" style="margin-top:30px;" class="animated fadeIn">
         <form id="loginForm">
-            <input name="emailTextBox" type="text" class="login-textbox hvr-grow" placeholder="Cal Poly Email"/>
+            <input id="emailTextBox" type="text" class="login-textbox hvr-grow" placeholder="Cal Poly Email"/>
             <input id="passwordTextBox" type="password" class="login-textbox hvr-grow" placeholder="Password"/>
             <input id="loginButton" type="submit" class="login-button hvr-hang" value="Login"/>
         </form>
@@ -42,7 +41,7 @@
 </template>
 
 <template name="createAccountForm">
-    <div style="margin-top:0px;">
+    <div id="createAccountDiv" style="margin-top:0px;" class="animated fadeIn">
         <form id="createAccountForm">
             <input id="emailTextBox" type="text" class="login-textbox hvr-grow" placeholder="@calpoly.edu"/>
             <input id="passwordTextBox" type="password" class="login-textbox hvr-grow" placeholder="Password"/>
