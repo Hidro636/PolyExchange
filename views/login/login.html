@@ -1,18 +1,3 @@
-<head>
-    <title>PolyExchange</title>
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-</head>
-<body background="/media/background.png">
-
-{{#if currentUser}}
-    {{> headBar}}
-    {{> rideShareWindow}}
-{{else}}
-    {{> loginWindow}}
-{{/if}}
-
-</body>
-
 <template name="loginWindow">
     <div id="loginContainer" class="login-container">
         {{#if showLogin}}

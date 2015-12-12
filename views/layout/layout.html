@@ -1,0 +1,32 @@
+<head>
+    <title>PolyExchange</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+</head>
+<body background="/media/background.png">
+
+<div id="drag" class="draggable">
+    Drag me
+</div>
+
+{{#if currentUser}}
+    {{> headBar}}
+{{else}}
+    {{> loginWindow}}
+{{/if}}
+
+</body>
+
+<template name="headBar">
+    <div class="headbar animated fadeInDown">
+        <div class="account-container">
+            <label id="usernameLabel" style="color: black;" class="hvr-grow">{{currentUser}}</label>
+            <br>
+            <button class="logout-button hvr-hang" id="logoutButton">Logout</button>
+        </div>
+
+    </div>
+</template>
+
+<template name="testPlate">
+
+</template>
