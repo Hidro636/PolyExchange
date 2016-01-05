@@ -2,6 +2,11 @@
 
 if (Meteor.isClient) {
 
+    Template.dragBox.onRendered(function() {
+        console.log(this.$('.rideShareWindow').val());
+    });
+
+
     Template.headBar.helpers({
         currentUser: function () {
             return Meteor.user().username
@@ -64,7 +69,7 @@ if (Meteor.isClient) {
         // keep the dragged position in the data-x/data-y attributes
             x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
             y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-        console.log("(" + x + ", " + y + ")");
+        //console.log("(" + x + ", " + y + ")");
         // translate the element
         target.style.webkitTransform =
             target.style.transform =
