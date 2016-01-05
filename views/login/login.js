@@ -107,9 +107,29 @@ if (Meteor.isClient) {
                 Accounts.createUser({
                     username: email.split('@')[0],
                     password: password,
-                    email: email
+                    email: email,
+                    profile: {
+                    }
                 }, function() {
                     Session.set("showLogin", true);
+
+                    Windows.insert({
+                       id: Meteor.userId(),
+                        rideShareWindow: {
+                            visible: true,
+                            x: '5%',
+                            y: 100,
+                            width: '600px',
+                            height: '400px'
+                        },
+                        textBookWindow: {
+
+                        },
+                        marketPlaceWindow: {
+
+                        }
+                    });
+
                 });
 
             }

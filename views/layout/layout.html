@@ -4,12 +4,11 @@
 </head>
 <body background="/media/background.png">
 
-<div id="drag" class="draggable">
-    Drag me
-</div>
+
 
 {{#if currentUser}}
     {{> headBar}}
+    {{> dragBox}}
 {{else}}
     {{> loginWindow}}
 {{/if}}
@@ -23,10 +22,12 @@
             <br>
             <button class="logout-button hvr-hang" id="logoutButton">Logout</button>
         </div>
-
     </div>
 </template>
 
-<template name="testPlate">
 
+<template name="dragBox">
+    <div id='rideShareWindow' class="draggable drag-container">
+        Drag and Resize
+    </div>
 </template>
