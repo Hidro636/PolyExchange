@@ -1,10 +1,13 @@
-
-
 if (Meteor.isClient) {
 
-    Template.dragBox.onRendered(function() {
-        console.log(this.$('.rideShareWindow').val());
-    });
+    Template.dragBox.onRendered(function () {
+            console.log("onRendered: " + Meteor.userId());
+            var window = Windows.find().forEach(function (entry) {
+                console.log("Entry id: " + entry.id);
+                console.log("(" + entry.rideShareWindow.x + ", " + entry.rideShareWindow.y + ")");
+            });
+        }
+    );
 
 
     Template.headBar.helpers({
@@ -56,7 +59,6 @@ if (Meteor.isClient) {
 
             target.setAttribute('data-x', x);
             target.setAttribute('data-y', y);
-
 
 
             //Display size on rectangle
