@@ -2,7 +2,7 @@ if (Meteor.isClient) {
 
     Template.rideShareDragBox.onRendered(function () {
 
-            setTimeout(function() {
+            setTimeout(function () {
                 var window = Windows.findOne({id: Meteor.userId()}).rideShareWindow;
 
                 this.$('#rideShareWindow').css({
@@ -17,7 +17,7 @@ if (Meteor.isClient) {
 
     Template.textBookDragBox.onRendered(function () {
 
-            setTimeout(function() {
+            setTimeout(function () {
                 var window = Windows.findOne({id: Meteor.userId()}).textBookWindow;
 
                 this.$('#textBookWindow').css({
@@ -32,7 +32,7 @@ if (Meteor.isClient) {
 
     Template.marketPlaceDragBox.onRendered(function () {
 
-            setTimeout(function() {
+            setTimeout(function () {
                 var window = Windows.findOne({id: Meteor.userId()}).marketPlaceWindow;
 
                 this.$('#marketPlaceWindow').css({
@@ -41,6 +41,8 @@ if (Meteor.isClient) {
                     'height': window.height,
                     'width': window.width
                 });
+
+
             }, 100);
         }
     );
@@ -96,7 +98,11 @@ if (Meteor.isClient) {
             target.setAttribute('data-x', x);
             target.setAttribute('data-y', y);
 
-
+            Meteor.call('updateUserWindowSize', Meteor.userId(), target.id, event.rect.height + 'px', event.rect.width + 'px');
+            Meteor.call('updateUserWindowPosition', Meteor.userId(), target.id, target.getAttribute('data-x'), target.getAttribute('data-y'));
+            //console.log('(' + x + ',  ' + y + ')');
+            console.log(target.id);
+            //console.log('resized to h: ' + event.rect.height + ' w: ' + event.rect.width);
             //Display size on rectangle
             //target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
         });
@@ -116,7 +122,8 @@ if (Meteor.isClient) {
         // update the posiion attributes
         target.setAttribute('data-x', x);
         target.setAttribute('data-y', y);
-
+        Meteor.call('updateUserWindowPosition', Meteor.userId(), event.target.id, target.getAttribute('data-x'), target.getAttribute('data-y'));
+        console.log(target.id);
     }
 
     // this is used later in the resizing and gesture demos
