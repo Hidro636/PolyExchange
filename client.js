@@ -1,3 +1,3 @@
 if(Meteor.isClient) {
-    Meteor.subscribe('Windows');
+    Meteor.subscribe('windowsCollection');
 }

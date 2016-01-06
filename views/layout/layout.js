@@ -1,11 +1,47 @@
 if (Meteor.isClient) {
 
-    Template.dragBox.onRendered(function () {
-            console.log("onRendered: " + Meteor.userId());
-            var window = Windows.find().forEach(function (entry) {
-                console.log("Entry id: " + entry.id);
-                console.log("(" + entry.rideShareWindow.x + ", " + entry.rideShareWindow.y + ")");
-            });
+    Template.rideShareDragBox.onRendered(function () {
+
+            setTimeout(function() {
+                var window = Windows.findOne({id: Meteor.userId()}).rideShareWindow;
+
+                this.$('#rideShareWindow').css({
+                    'left': window.x,
+                    'top': window.y,
+                    'height': window.height,
+                    'width': window.width
+                });
+            }, 100);
+        }
+    );
+
+    Template.textBookDragBox.onRendered(function () {
+
+            setTimeout(function() {
+                var window = Windows.findOne({id: Meteor.userId()}).textBookWindow;
+
+                this.$('#textBookWindow').css({
+                    'left': window.x,
+                    'top': window.y,
+                    'height': window.height,
+                    'width': window.width
+                });
+            }, 100);
+        }
+    );
+
+    Template.marketPlaceDragBox.onRendered(function () {
+
+            setTimeout(function() {
+                var window = Windows.findOne({id: Meteor.userId()}).marketPlaceWindow;
+
+                this.$('#marketPlaceWindow').css({
+                    'left': window.x,
+                    'top': window.y,
+                    'height': window.height,
+                    'width': window.width
+                });
+            }, 100);
         }
     );
 

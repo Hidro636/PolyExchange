@@ -2,7 +2,7 @@ Windows = new Mongo.Collection("Windows");
 
 if(Meteor.isServer){
 
-    Meteor.publish('Windows', function() {
+    Meteor.publish('windowsCollection', function() {
         return Windows.find();
     });
 
@@ -13,15 +13,23 @@ if(Meteor.isServer){
                 rideShareWindow: {
                     visible: true,
                     x: '5%',
-                    y: 100,
-                    width: '600px',
-                    height: '400px'
+                    y: '15%',
+                    width: '43%',
+                    height: '40%'
                 },
                 textBookWindow: {
-
+                    visible: true,
+                    x: '52%',
+                    y: '15%',
+                    width: '43%',
+                    height: '40%'
                 },
                 marketPlaceWindow: {
-
+                    visible: true,
+                    x: '5%',
+                    y: '60%',
+                    width: '90%',
+                    height: '30%'
                 }
             });
 
