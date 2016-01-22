@@ -1,29 +1,55 @@
 if (Meteor.isClient) {
 
+    Meteor.startup(function () {
+        Session.set("subscriptionsReady", false);
+    });
+
+    Meteor.subscribe("Windows", function () {
+        Session.set("subscriptionsReady", true);
+    });
+
 
     // Body ############################################################################################################
-    Template.body.onCreated(function () {
-        this.subscribe("Windows");
-    });
 
-    Template.body.helpers({
-        window1Visible: function () {
-            if (Template.instance().subscriptionsReady()) {
-                var visible = Windows.find().fetch()[0].window1.visible;
-                return visible;
-            }
-        }
-    });
+    Template.body.helpers({});
+
     // #################################################################################################################
 
     Template.rideShareDragBox.onRendered(function () {
-        var window1 = Windows.find().fetch()[0].window1;
-        this.$("#window1").css({
-            "height": window1.height,
-            "width": window1.width,
-            "left": window1.left,
-            "top": window1.top
-        });
+        setTimeout(function(){
+            var window = Windows.find().fetch()[0].window1;
+            console.log(window);
+            this.$("#window1").css({
+                "height": window.height,
+                "width": window.width,
+                "left": window.left,
+                "top": window.top
+            });
+        }, 50);
+    });
+
+    Template.textBookDragBox.onRendered(function () {
+        setTimeout(function() {
+            var window = Windows.find().fetch()[0].window2;
+            this.$("#window2").css({
+                "height": window.height,
+                "width": window.width,
+                "left": window.left,
+                "top": window.top
+            });
+        }, 50);
+    });
+
+    Template.marketPlaceDragBox.onRendered(function () {
+        setTimeout(function() {
+            var window = Windows.find().fetch()[0].window3;
+            this.$("#window3").css({
+                "height": window.height,
+                "width": window.width,
+                "left": window.left,
+                "top": window.top
+            });
+        }, 50);
     });
 
     interact('.draggable')
