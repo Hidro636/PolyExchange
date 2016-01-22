@@ -111,9 +111,10 @@ if (Meteor.isClient) {
                 }, function() {
                     Session.set("showLogin", true);
 
-                    Meteor.call('insertUserWindowData', Meteor.userId());
                     Meteor.logout();
                     Meteor.loginWithPassword(email.split('@')[0], password);
+
+                    Meteor.call('insertWindowData', Meteor.userId())
                 });
 
             }

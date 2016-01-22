@@ -8,7 +8,9 @@
 
 {{#if currentUser}}
     {{> headBar}}
-    {{> rideShareDragBox}}
+    {{#if window1Visible}}
+        {{> rideShareDragBox}}
+    {{/if}}
     {{> textBookDragBox}}
     {{> marketPlaceDragBox}}
 {{else}}
@@ -17,31 +19,21 @@
 
 </body>
 
-<template name="headBar">
-    <div class="headbar animated fadeInDown">
-        <div class="account-container">
-            <label id="usernameLabel" style="color: black;" class="hvr-grow">{{currentUser}}</label>
-            <br>
-            <button class="logout-button hvr-hang" id="logoutButton">Logout</button>
-        </div>
-    </div>
-</template>
-
 
 <template name="rideShareDragBox">
-    <div id='rideShareWindow' class="draggable drag-container">
+    <div id='window1' class="draggable drag-container">
 
     </div>
 </template>
 
 <template name="textBookDragBox">
-    <div id='textBookWindow' class="draggable drag-container">
+    <div id='window2' class="draggable drag-container">
 
     </div>
 </template>
 
 <template name="marketPlaceDragBox">
-    <div id='marketPlaceWindow' class="draggable drag-container">
+    <div id='window3' class="draggable drag-container">
 
     </div>
 </template>

@@ -1,68 +1,30 @@
 if (Meteor.isClient) {
 
+
+    // Body ############################################################################################################
+    Template.body.onCreated(function () {
+        this.subscribe("Windows");
+    });
+
+    Template.body.helpers({
+        window1Visible: function () {
+            if (Template.instance().subscriptionsReady()) {
+                var visible = Windows.find().fetch()[0].window1.visible;
+                return visible;
+            }
+        }
+    });
+    // #################################################################################################################
+
     Template.rideShareDragBox.onRendered(function () {
-
-            setTimeout(function () {
-                var window = Windows.findOne({id: Meteor.userId()}).rideShareWindow;
-
-                this.$('#rideShareWindow').css({
-                    'left': window.x,
-                    'top': window.y,
-                    'height': window.height,
-                    'width': window.width
-                });
-            }, 100);
-        }
-    );
-
-    Template.textBookDragBox.onRendered(function () {
-
-            setTimeout(function () {
-                var window = Windows.findOne({id: Meteor.userId()}).textBookWindow;
-
-                this.$('#textBookWindow').css({
-                    'left': window.x,
-                    'top': window.y,
-                    'height': window.height,
-                    'width': window.width
-                });
-            }, 100);
-        }
-    );
-
-    Template.marketPlaceDragBox.onRendered(function () {
-
-            setTimeout(function () {
-                var window = Windows.findOne({id: Meteor.userId()}).marketPlaceWindow;
-
-                this.$('#marketPlaceWindow').css({
-                    'left': window.x,
-                    'top': window.y,
-                    'height': window.height,
-                    'width': window.width
-                });
-
-
-            }, 100);
-        }
-    );
-
-
-    Template.headBar.helpers({
-        currentUser: function () {
-            return Meteor.user().username
-        }
+        var window1 = Windows.find().fetch()[0].window1;
+        this.$("#window1").css({
+            "height": window1.height,
+            "width": window1.width,
+            "left": window1.left,
+            "top": window1.top
+        });
     });
-
-    Template.headBar.events({
-        "click #logoutButton": function (e) {
-            Meteor.logout();
-        },
-        "click #usernameLabel": function (e) {
-            alert("user info");
-        }
-    });
-
 
     interact('.draggable')
         .draggable({
@@ -98,13 +60,7 @@ if (Meteor.isClient) {
             target.setAttribute('data-x', x);
             target.setAttribute('data-y', y);
 
-            Meteor.call('updateUserWindowSize', Meteor.userId(), target.id, event.rect.height + 'px', event.rect.width + 'px');
-            Meteor.call('updateUserWindowPosition', Meteor.userId(), target.id, target.getAttribute('data-x'), target.getAttribute('data-y'));
-            //console.log('(' + x + ',  ' + y + ')');
-            console.log(target.id);
-            //console.log('resized to h: ' + event.rect.height + ' w: ' + event.rect.width);
-            //Display size on rectangle
-            //target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
+
         });
 
     function dragMoveListener(event) {
@@ -122,8 +78,7 @@ if (Meteor.isClient) {
         // update the posiion attributes
         target.setAttribute('data-x', x);
         target.setAttribute('data-y', y);
-        Meteor.call('updateUserWindowPosition', Meteor.userId(), event.target.id, target.getAttribute('data-x'), target.getAttribute('data-y'));
-        console.log(target.id);
+
     }
 
     // this is used later in the resizing and gesture demos
