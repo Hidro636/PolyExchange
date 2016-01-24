@@ -34,7 +34,7 @@ if (Meteor.isServer) {
             });
         },
         updateWindowSizeAndPosition: function (userId, window, x, y, height, width) {
-            if(window == "window1") {
+            if (window == "window1") {
                 Windows.update({id: userId}, {
                     "$set": {
                         "window1.height": height,
@@ -52,13 +52,34 @@ if (Meteor.isServer) {
                         "window2.left": x
                     }
                 });
-            } else if( window == "window3") {
+            } else if (window == "window3") {
                 Windows.update({id: userId}, {
                     "$set": {
                         "window3.height": height,
                         "window3.width": width,
                         "window3.top": y,
                         "window3.left": x
+                    }
+                });
+            }
+        },
+        setWindowVisible: function (userId, window, visible) {
+            if (window == "window1") {
+                Windows.update({id: userId}, {
+                    "$set": {
+                        "window1.visible": visible
+                    }
+                });
+            } else if (window == "window2") {
+                Windows.update({id: userId}, {
+                    "$set": {
+                        "window2.visible": visible
+                    }
+                });
+            } else if (window == "window3") {
+                Windows.update({id: userId}, {
+                    "$set": {
+                        "window3.visible": visible
                     }
                 });
             }

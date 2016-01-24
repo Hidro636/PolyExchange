@@ -8,9 +8,13 @@
 
 {{#if currentUser}}
     {{> headBar}}
-        {{> rideShareDragBox}}
-    {{> textBookDragBox}}
-    {{> marketPlaceDragBox}}
+    {{#if ready}}
+        {{#if window1Visible}}
+            {{> rideShareDragBox}}
+        {{/if}}
+        {{> textBookDragBox}}
+        {{> marketPlaceDragBox}}
+    {{/if}}
 {{else}}
     {{> loginWindow}}
 {{/if}}
@@ -20,7 +24,7 @@
 
 <template name="rideShareDragBox">
     <div id='window1' class="draggable drag-container">
-
+        <button style="left:0" id="closeButton">X</button>
     </div>
 </template>
 

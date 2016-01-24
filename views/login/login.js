@@ -5,8 +5,6 @@ if (Meteor.isClient) {
         Session.setDefault("error", false);
     });
 
-
-
     Template.loginWindow.helpers({
         showLogin: function () {
             return Session.get("showLogin");

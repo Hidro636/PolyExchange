@@ -11,46 +11,65 @@ if (Meteor.isClient) {
 
     // Body ############################################################################################################
 
-    Template.body.helpers({});
+    Template.body.helpers({
+        ready: function () {
+            return Session.get('subscriptionsReady');
+        },
+        window1Visible: function () {
+            return Windows.find().fetch()[0].window1.visible;
+        }
+    });
 
     // #################################################################################################################
 
+    // onRendered ############################################################################################################
     Template.rideShareDragBox.onRendered(function () {
-        setTimeout(function(){
-            var window = Windows.find().fetch()[0].window1;
-            console.log(window);
-            this.$("#window1").css({
-                "height": window.height,
-                "width": window.width,
-                "left": window.left,
-                "top": window.top
-            });
-        }, 50);
+        var window = Windows.find().fetch()[0].window1;
+        console.log(window);
+        this.$("#window1").css({
+            "height": window.height,
+            "width": window.width,
+            "left": window.left,
+            "top": window.top
+        });
     });
 
     Template.textBookDragBox.onRendered(function () {
-        setTimeout(function() {
-            var window = Windows.find().fetch()[0].window2;
-            this.$("#window2").css({
-                "height": window.height,
-                "width": window.width,
-                "left": window.left,
-                "top": window.top
-            });
-        }, 50);
+        var window = Windows.find().fetch()[0].window2;
+        this.$("#window2").css({
+            "height": window.height,
+            "width": window.width,
+            "left": window.left,
+            "top": window.top
+        });
     });
 
     Template.marketPlaceDragBox.onRendered(function () {
-        setTimeout(function() {
-            var window = Windows.find().fetch()[0].window3;
-            this.$("#window3").css({
-                "height": window.height,
-                "width": window.width,
-                "left": window.left,
-                "top": window.top
-            });
-        }, 50);
+        var window = Windows.find().fetch()[0].window3;
+        this.$("#window3").css({
+            "height": window.height,
+            "width": window.width,
+            "left": window.left,
+            "top": window.top
+        });
     });
+    // #################################################################################################################
+
+
+    Template.rideShareDragBox.events({
+        /*"click #closeButton": function () {
+            Meteor.call("setWindowVisible",Meteor.userId(), "window1", false);
+        }*/
+    });
+
+    Template.textBookDragBox.events({
+
+    });
+
+    Template.marketPlaceDragBox.events({
+
+    });
+
 
     interact('.draggable')
         .draggable({
@@ -87,6 +106,7 @@ if (Meteor.isClient) {
             target.setAttribute('data-y', y);
 
 
+
         });
 
     function dragMoveListener(event) {
@@ -104,7 +124,7 @@ if (Meteor.isClient) {
         // update the posiion attributes
         target.setAttribute('data-x', x);
         target.setAttribute('data-y', y);
-
+        console.log("(" + Math.round(x, 1) + ", " + Math.round(y, 1) + ")");
     }
 
     // this is used later in the resizing and gesture demos
