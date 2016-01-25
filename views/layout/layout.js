@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
 
     Meteor.startup(function () {
-        Session.set("subscriptionsReady", false);
+        Session.setDefault("subscriptionsReady", false)
     });
 
     Meteor.subscribe("Windows", function () {
